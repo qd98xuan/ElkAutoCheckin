@@ -1,0 +1,33 @@
+name: 'elkAutoCheckin'
+
+on:
+  push:
+  pull_request:
+  watch:
+    types: [ started ]
+  schedule:
+    - cron: */1 * * * *
+
+jobs:
+  elkAutoCheckin:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: setup-python
+        uses: actions/setup-python@master
+        with:
+          python-version: 3.7
+
+      - name: install-requirement
+        run: |
+          pip3 install urllib3
+          pip3 install datetime
+          pip3 install demjson3
+      - name: checkin
+        env:
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+        run: |
+          python3 main.py
