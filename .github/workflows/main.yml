@@ -2,11 +2,11 @@ name: 'elkAutoCheckin'
 
 on:
   push:
-  pull_request:
-  watch:
-    types: [ started ]
+#   pull_request:
+#   watch:
+#     types: [ started ]
   schedule:
-    - cron: '0 */1 * * *'
+    - cron: '*/5 * * * *'
 
 jobs:
   elkAutoCheckin:
