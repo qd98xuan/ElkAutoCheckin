@@ -2,7 +2,7 @@ name: 'elkAutoCheckin'
 
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '0 */1 * * *'
   push:
 #   pull_request:
 #   watch:
