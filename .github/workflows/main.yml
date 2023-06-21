@@ -5,8 +5,8 @@ on:
     - cron: '0 */11 * * *'
   push:
 #   pull_request:
-#   watch:
-#     types: [ started ]
+  watch:
+    types: [ started ]
 #   schedule:
 #     - cron: '*/5 * * * *'
 
