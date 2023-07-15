@@ -1,5 +1,5 @@
 # ElkAutoCheckin
-## elk 自动签到
+## elk  自动签到
 
 点击Settings->Secrets->Actions
 添加两个新Action，一个是USERNAME为用户名，一个是PASSWORD为密码
