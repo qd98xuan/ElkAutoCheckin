@@ -50,9 +50,10 @@ def elk_open_user(cookies):
 # 签到
 def checkin(cookies):
     resp = http.request('POST', 'https://www.elkcloud.top/user/checkin', headers={'Cookie': cookies})
-    respData = demjson.decode(resp.data)
-    print(respData)
-    print(respData["msg"])
+    # respData = demjson.decode(resp.data)
+    # print(respData)
+    # print(respData["msg"])
+    print(resp)
 
 
 # Press the green button in the gutter to run the script.
