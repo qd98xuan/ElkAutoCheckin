@@ -13,6 +13,7 @@ http = urllib3.PoolManager()
 
 USER_NAME = os.environ['USERNAME']
 USER_PASSW = os.environ['PASSWORD']
+USER_DOMAIN = os.environ['DOMAIN']
 
 
 def print_hi(name):
@@ -27,7 +28,7 @@ def elk_checkin():
 
 # 登录
 def elk_login():
-    res = http.request('POST', 'https://www.elkcloud.top/auth/login',
+    res = http.request('POST', USER_DOMAIN+'/auth/login',
                        fields={'email': USER_NAME, 'passwd': USER_PASSW, 'remember_me': 'on'})
     print(demjson.decode(res.data))
     if demjson.decode(res.data)['msg'] == "登录成功":
@@ -41,7 +42,7 @@ def elk_login():
 
 # 打开用户页面
 def elk_open_user(cookies):
-    data = http.urlopen(method='GET', url='https://www.elkcloud.top/user',
+    data = http.urlopen(method='GET', url=USER_DOMAIN+'/user',
                         headers={'Cookie': cookies})
     # print(data.data.decode())
     checkin(cookies)
@@ -49,7 +50,7 @@ def elk_open_user(cookies):
 
 # 签到
 def checkin(cookies):
-    resp = http.request('POST', 'https://www.elkcloud.top/user/checkin', headers={'Cookie': cookies})
+    resp = http.request('POST', USER_DOMAIN+'/user/checkin', headers={'Cookie': cookies})
     # respData = demjson.decode(resp.data)
     # print(respData)
     # print(respData["msg"])
