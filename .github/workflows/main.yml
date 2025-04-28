@@ -20,7 +20,7 @@ jobs:
       - name: setup-python
         uses: actions/setup-python@master
         with:
-          python-version: 3.8.0
+          python-version: 3.13.1
 
       - name: install-requirement
         run: |
